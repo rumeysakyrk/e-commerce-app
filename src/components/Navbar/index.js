@@ -8,7 +8,7 @@ function Navbar() {
    <nav className={styles.nav}>
     <div className={styles.left}>
         <div className="logo">
-            <Link to="/">eCommerce</Link>
+            <Link to="/">rbkCommerce😁</Link>
         </div>
 
         <ul className={styles.menu}>
