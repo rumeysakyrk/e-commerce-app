@@ -9,3 +9,8 @@ export const fetchProductDetail= async (id) => {
     const {data}= await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/product/${id}`);
     return data;
 };
+
+export const fetchRegister= async (values) => {
+    const {data}= await axios.post(`${process.env.REACT_APP_BASE_ENDPOINT}/auth/register`, values);
+    return data;
+};
