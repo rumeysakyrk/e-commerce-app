@@ -3,9 +3,10 @@ import { Flex, Box, Heading, FormControl, FormLabel, Input, Button, Alert } from
 import {useFormik} from "formik";
 import validationSchema from './validations';
 import {fetchRegister} from "../../api";
-
+import { useAuth } from '../../../contexts/AuthContext';
 
 function Signup() {
+  const {login} =useAuth();
   const formik = useFormik( {
     initialValues: {email: "", password: "", passwordConfirm: ""},
 
@@ -15,6 +16,7 @@ function Signup() {
           email: values.email,
           password: values.password
         })
+        login(registerResponse);
         console.log(registerResponse);
       } catch (e) {
         bag.setErrors({general: e.response.data.message});
