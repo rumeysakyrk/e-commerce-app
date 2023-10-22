@@ -21,12 +21,16 @@ const CartProvider = ({children}) => {
             setItems(filtered);
 
         }
+        const emptyCart =() => {
+            setItems([]);
+        }
 
         const values= {
             items,
             setItems,
             addToCart,
             removeFromCart,
+            emptyCart,
         };
 
        
