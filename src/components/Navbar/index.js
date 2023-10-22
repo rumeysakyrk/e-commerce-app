@@ -3,8 +3,11 @@ import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
 import { Button } from '@chakra-ui/react'
 import { useAuth } from '../../contexts/AuthContext';
+import { useCart } from '../../contexts/CartContext';
+
 function Navbar() {
     const { loggedIn } = useAuth();
+    const {items} =useCart();
 
     console.log(loggedIn);
 
@@ -35,6 +38,16 @@ function Navbar() {
 
                 {loggedIn && (
                     <>
+                    {
+                        items.length > 0 &&(
+                            <Link to="/cart">
+                            <Button colorScheme='purple' variant={"outline"}>
+                                Cart ({items.length})
+                            </Button>
+                            </Link>
+                        )
+                    }
+
                      <Link to="/profile">
                             <Button colorScheme='purple'>Profile</Button>
                         </Link>

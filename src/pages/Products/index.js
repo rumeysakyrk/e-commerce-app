@@ -7,7 +7,7 @@ import {
 import { fetchProductList } from '../api'; 
 
 function Products() {
-
+ 
     const { error, data, fetchNextPage, hasNextPage,
        isFetchingNextPage,status } = useInfiniteQuery("products", fetchProductList, {
         getNextPageParam:(lastGroup, allGroups) =>{

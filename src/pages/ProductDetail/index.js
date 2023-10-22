@@ -7,9 +7,13 @@ import {
 import ReactImageGallery from 'react-image-gallery';
 import { Button, Box } from '@chakra-ui/react';
 import  moment  from 'moment'
+import { useCart } from '../../contexts/CartContext';
+
 
 function ProductDetail() {
     const { product_id } = useParams();
+    const {addToCart} =useCart();
+
 
     const { isLoading, error, data } = useQuery({
         queryKey: ['product', product_id],
@@ -28,7 +32,7 @@ function ProductDetail() {
       <ReactImageGallery items={images} thumbnailPosition='left'>
 
 </ReactImageGallery>
-      <Button mt={"20px"} colorScheme='purple'>Add to Cart</Button>
+      <Button mt={"20px"} colorScheme='purple' onClick={() => addToCart(data)}>Add to Cart</Button>
       
       <Box mt={"10px"} as="h1" fontWeight={"bold"} >{data.title}</Box>
       <Box mt={"10px"} d="plex" alignItems={"baseline"}>
