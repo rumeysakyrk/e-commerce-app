@@ -1,17 +1,18 @@
 import React from 'react'
 import {
-    Link
+    Link, Navigate, Outlet
 } from "react-router-dom";
 import "./styles.css"
+import { useAuth } from '../../contexts/AuthContext';
 
 function Admin() {
-    return (
-
-        <div>
+    const { user } = useAuth();
+    return (<>
+        {user?.role !== "admin" && <Navigate to="/" replace />}< div >
             <nav>
                 <ul className='admin-menu'>
                     <li>
-                        <Link to="/admin">Admin</Link>
+                        <Link to="/admin">Admin Home</Link>
                     </li>
                     <li>
                         <Link to="/admin/orders">Orders</Link>
@@ -21,7 +22,9 @@ function Admin() {
                     </li>
                 </ul>
             </nav>
-        </div>
+            <Outlet />
+        </div ></>
+
     )
 }
 

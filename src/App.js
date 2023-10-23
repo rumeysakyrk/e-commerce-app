@@ -17,29 +17,31 @@ import Cart from './pages/Cart';
 import Error404 from './pages/Error404';
 import Admin from './pages/Admin';
 import Orders from './pages/Admin/Orders';
+import AdminHome from './pages/Admin/AdminHome';
 
 function App() {
   return (
     <Router>
-    <div>
-      <Navbar />
-      <div id="content">
-      <Routes>
-        <Route path="/" exact element={<Products />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/products/:product_id" element={<ProductDetail />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/profile" element={<ProtectedRoute />} />
-        <Route path="/admin" element={<ProtectedRoute admin/>} />
-        <Route path='/admin' element={<Admin />} />
-        <Route path='/admin/orders' element={<Orders />} />
-        <Route path='/admin/product' element={<Product />} />
-        <Route path="*" element={<Error404 />} />
-      </Routes>
+      <div>
+        <Navbar />
+        <div id="content">
+          <Routes>
+            <Route path="/" exact element={<Products />} />
+            <Route path="/signin" element={<Signin />} />
+            <Route path="/products/:product_id" element={<ProductDetail />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/profile" element={<ProtectedRoute />} />
+            <Route element={<Admin />}>
+              <Route index path='/admin' element={<AdminHome />} />
+              <Route path='/admin/orders' element={<Orders />} />
+              <Route path='/admin/product' element={<Product />} />
+            </Route>
+            <Route path="*" element={<Error404 />} />
+          </Routes>
+        </div>
       </div>
-    </div>
-  </Router>
+    </Router>
   );
 }
 
