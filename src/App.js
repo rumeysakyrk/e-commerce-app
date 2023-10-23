@@ -18,6 +18,7 @@ import Error404 from './pages/Error404';
 import Admin from './pages/Admin';
 import Orders from './pages/Admin/Orders';
 import AdminHome from './pages/Admin/AdminHome';
+import ProductsDetail from './pages/Admin/ProductsDetail';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
               <Route index path='/admin' element={<AdminHome />} />
               <Route path='/admin/orders' element={<Orders />} />
               <Route path='/admin/product' element={<Product />} />
+              <Route index path='/admin/products/:product_id' element={<ProductsDetail />} />
             </Route>
             <Route path="*" element={<Error404 />} />
           </Routes>
