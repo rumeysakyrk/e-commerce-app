@@ -6,7 +6,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useCart } from '../../contexts/CartContext';
 
 function Navbar() {
-    const { loggedIn } = useAuth();
+    const { loggedIn, user } = useAuth();
     const {items} =useCart();
 
     console.log(loggedIn);
@@ -35,6 +35,15 @@ function Navbar() {
                         </Link>
                     </>
                 )}
+
+                 { user && user.role ==='admin' && (
+                    <Link to="/admin">
+                        <Button colorScheme='purple' variant={"ghost"} >Admin</Button>
+                    </Link>
+                )
+
+                }
+              
 
                 {loggedIn && (
                     <>

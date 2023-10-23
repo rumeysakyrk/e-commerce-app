@@ -50,3 +50,8 @@ export const fetchOrder= async (input) => {
     const {data}= await axios.post(`${process.env.REACT_APP_BASE_ENDPOINT}/order`, input);
     return data;
 };
+
+export const fetchOrderList= async () => {
+    const {data}= await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/order`);
+    return data;
+};

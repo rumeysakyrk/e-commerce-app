@@ -9,10 +9,14 @@ import Navbar from "./components/Navbar";
 import Signin from "./pages/Auth/Signin";
 import Signup from "./pages/Auth/Signup";
 import Products from "./pages/Products";
+import Product from "./pages/Admin/Product";
+
 import ProductDetail from './pages/ProductDetail';
 import ProtectedRoute from './pages/ProtectedRoute';
 import Cart from './pages/Cart';
 import Error404 from './pages/Error404';
+import Admin from './pages/Admin';
+import Orders from './pages/Admin/Orders';
 
 function App() {
   return (
@@ -27,6 +31,10 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<ProtectedRoute />} />
+        <Route path="/admin" element={<ProtectedRoute admin/>} />
+        <Route path='/admin' element={<Admin />} />
+        <Route path='/admin/orders' element={<Orders />} />
+        <Route path='/admin/product' element={<Product />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
       </div>
