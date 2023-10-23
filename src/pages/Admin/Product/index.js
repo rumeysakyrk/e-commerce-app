@@ -46,7 +46,7 @@ function Product() {
           <Link to={`/admin/products/${record._id}`}>Edit </Link>
           <Popconfirm title="Are you sure?" onConfirm={() => mutation.mutate(record._id,
             { onSuccess: () => { console.log("success"); queryClient.invalidateQueries('admin:products') } })}  >
-            <a href='#'> Delete</a></Popconfirm>
+            <a href='#!'> Delete</a></Popconfirm>
         </>
       )
     },
