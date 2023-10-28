@@ -9,7 +9,6 @@ import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query';
-import {ReactQueryDevtools} from "react-query/devtools";
 import {AuthProvider} from "./contexts/AuthContext";
 import { CartProvider } from './contexts/CartContext';
 
@@ -33,7 +32,6 @@ root.render(
         </CartProvider>
       </AuthProvider>
     </ChakraProvider>
-    <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>
 );

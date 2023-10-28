@@ -12,9 +12,6 @@ function Admin() {
             <nav>
                 <ul className='admin-menu'>
                     <li>
-                        <Link to="/admin">Admin Home</Link>
-                    </li>
-                    <li>
                         <Link to="/admin/orders">Orders</Link>
                     </li>
                     <li>

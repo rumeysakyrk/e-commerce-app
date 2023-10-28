@@ -1,8 +1,8 @@
 import React from 'react'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
 import { fetchProductList, deleteProduct } from '../../api'
-import { Popconfirm, Table } from 'antd'
-import { Text } from '@chakra-ui/react'
+import { Button, Popconfirm, Table } from 'antd'
+import { Flex, Text } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
 function Product() {
@@ -55,9 +55,14 @@ function Product() {
   return (
     <div>
 
+      <Flex justifyContent={"space-between"} alignItems={"center"}> 
       <Text fontSize={"2xl"} p={2}>
         Products
       </Text>
+      <Link to={'/admin/product/new'}>
+      <Button>new</Button>
+      </Link>
+      </Flex>
 
       <Table dataSource={data} columns={columns} rowKey={"_id"}>
       </Table>
